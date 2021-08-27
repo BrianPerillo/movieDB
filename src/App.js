@@ -1,24 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import './assets/css/cardStyle.css'
+import './assets/js/cardAnimation.js'
+
+import React, { Fragment, useEffect, useState } from 'react';
+import { getMovieByID, getMovieByName } from './services/getMoviesFunctions';
+
+import $ from 'jquery';
+import Header from './components/Header'
+import ListadoMovies from './components/ListadoMovies';
 
 function App() {
+
+  const [movies, setMovies] = useState(null)
+  const [trajoDatos, setTrajoDatos] = useState(false)    
+
+  
+  useEffect(() => {
+
+
+
+  }, [movies])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Fragment>
+
+      <Header setMovies={setMovies} setTrajoDatos={setTrajoDatos}>
+       
+      </Header>
+
+      <div className='container'>
+
+      { 
+
+        trajoDatos ? 
+        
+          <div className="row">
+
+            <ListadoMovies movies={movies}/>
+
+          </div>
+        
+        :
+
+          <p>Loading...</p>
+        
+      }
+
+      </div>
+
+    </Fragment>
+
   );
 }
 
