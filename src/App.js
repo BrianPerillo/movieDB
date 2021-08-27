@@ -34,7 +34,7 @@ function App() {
 
         trajoDatos ? 
         
-          <div className="row">
+          <div className="row" style={{justifyContent:'center', display:'flex'}}>
 
             <ListadoMovies movies={movies}/>
 

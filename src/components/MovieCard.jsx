@@ -29,17 +29,19 @@ const MovieCard = ({movie, index}) => {
 
     return ( 
 
-            <div className='col-3 p-3'>
+            <div id='movie-card' className='col-3 col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-3'>
                 <div id="make-3D-space">
                     <div id="product-card" className={'product-card-' + index} onMouseEnter={()=>handleOnMouseEnter()} onMouseLeave={()=>handleOnMouseLeave()}>
                         <div id="product-front">
                             <div class="shadow"></div>
-                            <img src={process.env.REACT_APP_MOVIE_DB_IMAGE + movie.poster_path} style={{width:'100%',objectFit:'contain'}} alt="" />
+                            <div style={{height:300}}>
+                                <img src={process.env.REACT_APP_MOVIE_DB_IMAGE + movie.poster_path} style={{width:'100%',objectFit:'contain'}} alt="" />
+                            </div>
                             <div class="image_overlay"></div>
                             <div id="view_details">View details</div>
                             <div class="stats">        	
                                 <div class="stats-container">
-                                    <span class="product_price">$39</span>
+                                    {/* <span class="product_price">$39</span> */}
                                     <span class="product_name">{movie.original_title}</span>    
                                     <p>Men's running shirt</p>                                            
                                     
